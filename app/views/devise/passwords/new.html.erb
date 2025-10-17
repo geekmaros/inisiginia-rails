@@ -1,16 +1,25 @@
-<h2>Forgot your password?</h2>
+<div>
+  <h2 class="auth-title mt-10">Reset Your Password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="max-w-[327px] w-full mt-2 space-y-4">
+    <p class="auth-subtitle">We’ll send you a link to your email for creating a new password and regain access to your account.</p>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+  <%= form_for(resource, as: resource_name, url: user_password_path(resource_name), html: { method: :post, class: "mt-10" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= render "devise/shared/links" %>
+    <div class="mb-2">
+      <%= f.label :email, class: "label mb-2"%>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "input" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Send reset link", class: "btn-primary w-full mt-10" %>
+    </div>
+  <% end %>
+
+  <p class="auth-link-text mt-2">Remember Password? <%= link_to "Sign In", new_user_session_path, class: "auth-link" %>  </p>
+
+  <%#= render "devise/shared/links" %>
+
+</div>
