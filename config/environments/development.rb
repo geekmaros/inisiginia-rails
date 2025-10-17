@@ -6,6 +6,10 @@ Rails.application.configure do
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
 
+  # also watch changes in the assets/tailwind/appliction.css file
+  config.hotwire_livereload.listen_paths << Rails.root.join("app/assets/tailwind/")
+
+
   # Do not eager load code on boot.
   config.eager_load = false
 

@@ -67,3 +67,5 @@ end
 gem "devise", "~> 4.9"
 
 # gem "tailwindcss-ruby", "~> 4.1"
+
+gem "hotwire-livereload", "~> 2.1", group: :development
