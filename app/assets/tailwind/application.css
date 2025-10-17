@@ -1,6 +1,147 @@
 @import "tailwindcss";
 
+
+
 @theme{
-    --color-primary:#84D94D;
+    --color-primary: #84D94D;
+    --color-gray-90: #292D32;
+    --color-gray-70: #54575B;
+    --color-gray-50: #7F8184;
+    --color-gray-30: #A9ABAD;
+    --color-gray-10: #D4D5D6;
+
+    /* Background layers */
+    --color-bg-primary: #fff; /* Main app background */
+
+/*    Fonts*/
+    --font-primary: 'Overused Grotesk', sans-serif;
 }
 
+.dark {
+    /* Brand Accent */
+    --color-primary: #84D94D;
+
+    /* Grays (neutral surfaces and text) */
+    --color-gray-90: #F5F5F6;   /* Highest contrast text */
+    --color-gray-70: #D1D5DB;   /* Secondary text */
+    --color-gray-50: #9CA3AF;   /* Muted labels, icons */
+    --color-gray-30: #6B7280;   /* Dividers, outlines */
+    --color-gray-10: #1F2123;   /* UI surface (cards, forms) */
+
+    /* Background layers */
+    --color-bg-primary: #121314; /* Main app background */
+    --color-bg-secondary: #181A1B; /* Cards, modals */
+    --color-bg-tertiary: #232627; /* Inputs, hovered elements */
+
+    /* Border + subtle accents */
+    --color-border: #2A2C2E;
+    --color-border-hover: #3A3C3E;
+
+    /* States */
+    --color-success: #84D94D;
+    --color-error: #F87171;
+    --color-warning: #FBBF24;
+
+    /* Font */
+    --font-primary: 'Overused Grotesk', sans-serif;
+}
+
+
+@layer base{
+
+    body{
+        @apply font-primary;
+    }
+}
+
+@layer components{
+    .btn-primary{
+        @apply bg-primary hover:bg-primary/90 cursor-pointer text-center text-gray-90 font-semibold rounded-xl px-4 py-3;
+    }
+}
+
+@layer utilities {
+    .auth-bg {
+        background-image: url('auth-bg.png');
+    }
+
+    .auth-title{
+        @apply text-gray-90 font-semibold text-center text-2xl;
+        line-height: 100%;
+    }
+
+    .auth-subtitle{
+        @apply text-gray-50 font-medium text-center text-sm;
+        line-height: 20px;
+
+    }
+
+    .auth-link-text{
+        @apply text-gray-90 font-medium text-center text-sm leading-none;
+    }
+
+    .auth-link{
+        @apply text-primary font-semibold text-center text-sm leading-none;
+    }
+
+    .label{
+        @apply text-sm text-gray-50 font-medium mb-2 block;
+    }
+
+    .input{
+        @apply border-gray-10 w-full rounded-lg p-3 placeholder:text-gray-30 placeholder:font-medium focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary;
+        border-width: 0.5px;
+    }
+
+
+}
+
+
+@font-face {
+    font-family: 'Overused Grotesk';
+    src: url('OverusedGrotesk-Black-BF64eeac181b256.ttf') format('truetype');
+    font-weight: 900; /* Black */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Overused Grotesk';
+    src: url('OverusedGrotesk-ExtraBold-BF64eeac17d4c2c.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Overused Grotesk';
+    src: url('OverusedGrotesk-Bold-BF64eeac17f1b7f.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Overused Grotesk';
+    src: url('OverusedGrotesk-SemiBold-BF64eeac17f0443.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Overused Grotesk';
+    src: url('OverusedGrotesk-Medium-BF64eeac18163be.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Overused Grotesk';
+    src: url('OverusedGrotesk-Book-BF64eeac17ce110.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Overused Grotesk';
+    src: url('OverusedGrotesk-Light-BF64eeac18175cf.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}

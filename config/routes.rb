@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # to be created to use it.
   scope "app/:user_id" do
     get "dashboard", to: "dashboard#show", as: :user_dashboard
+    # resources :dashboard, only: [ :show ]
   end
 
   # namespace route enables us to have custom name space with also point to the controller

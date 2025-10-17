@@ -19,28 +19,36 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
+
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <link href="/app/assets/stylesheets/application.css" rel="stylesheet">
+    <%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-green-300">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <body class="min-h-screen bg-gray-50  flex">
+  <main class="flex flex-col md:flex-row flex-1">
+    <!-- Left Section (Form / Auth Content) -->
+    <section class="auth-bg flex-1 flex items-center justify-center md:justify-end pr-[150px] bg-white bg-cover bg-top-left">
 
-  <% if user_signed_in? %>
-    <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "px-3 py-2 bg-red-500" %>
-  <% else %>
-  <% link_to "Sign in ", new_user_session_path, class: "bg-teal-500 px-3 py-1 rounded" %>
-  <% end %>
+      <div class="auth-subpage-wrapper bg-bg-primary rounded-4xl p-8 shadow-lg">
+        <div class="header flex justify-center items-center">
+          <%= image_tag "logo.svg" %>
+        </div>
+      <main>
+        <%= yield %>
+      </main>
+      </div>
+    </section>
 
-  <% link_to "Sign in ", new_user_session_path, class: "bg-teal-500 px-3 py-1 rounded text-red-600" %>
-
-
-
-  <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <!-- Right Section (Imagery / Branding) -->
+    <aside class="hidden md:hidden flex-1 items-center justify-center bg-gradient-to-br from-green-200 to-lime-600 text-white">
+      <div class="text-center px-10">
+        <h2 class="text-4xl font-semibold mb-4">Welcome to Insignia</h2>
+        <p class="text-md opacity-90">Create your digital presence and connect seamlessly.</p>
+      </div>
+    </aside>
+  </main>
   </body>
 </html>
