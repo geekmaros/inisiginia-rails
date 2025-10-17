@@ -69,3 +69,5 @@ gem "devise", "~> 4.9"
 # gem "tailwindcss-ruby", "~> 4.1"
 
 gem "hotwire-livereload", "~> 2.1", group: :development
+
+gem 'letter_opener', '~> 1.10', group: :development

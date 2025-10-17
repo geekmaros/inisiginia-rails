@@ -1,7 +1,7 @@
 <div>
   <h2 class="auth-title mt-10">Resend confirmation link</h2>
 
-  <%= form_for(resource, as: resource_name, url: user_confirmation_path(resource_name), html: { method: :post, class: "mt-10" }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "mt-10" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="mb-4">

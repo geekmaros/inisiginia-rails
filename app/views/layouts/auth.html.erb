@@ -28,13 +28,20 @@
   </head>
 
   <body class="min-h-screen bg-gray-50  flex">
+<!--  <p class="notice"><%#= notice %></p>-->
+<!--  <p class="alert"><%#= alert %></p>-->
   <main class="flex flex-col md:flex-row flex-1">
+
     <!-- Left Section (Form / Auth Content) -->
     <section class="auth-bg flex-1 flex items-center justify-center md:justify-end pr-[150px] bg-white bg-cover bg-top-left">
 
+
       <div class="auth-subpage-wrapper bg-bg-primary rounded-4xl p-8 shadow-lg">
-        <div class="header flex justify-center items-center">
+        <div class="header flex flex-col justify-center items-center">
           <%= image_tag "logo.svg" %>
+
+
+
         </div>
       <main>
         <%= yield %>
