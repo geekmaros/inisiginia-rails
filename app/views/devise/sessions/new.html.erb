@@ -8,6 +8,7 @@
   </div>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-10"}) do |f| %>
+    <%= render "devise/shared/notice_messages", resource: resource %>
     <div class="mb-4">
       <%= f.label :email, class: "label mb-2" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "input" %>
@@ -25,7 +26,7 @@
       </div>
     <% end %>
 
-    <p class="auth-link-text">Forgotten Password? <%= link_to "Reset Now", new_password_path(resource_name), class: "auth-link" %>  </p>
+    <p class="auth-link-text">Forgotten Password? <%= link_to "Reset Now", new_user_password_path(resource_name), class: "auth-link" %>  </p>
 
     <div class="actions">
       <%= f.submit "Sign in", class: "btn-primary w-full mt-10"%>
