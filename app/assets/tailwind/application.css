@@ -93,6 +93,10 @@
         border-width: 0.5px;
     }
 
+    .input-error{
+        @apply border-red-500 focus:ring-red-500;
+    }
+
 
 }
 

@@ -11,7 +11,9 @@
     <%= render "devise/shared/notice_messages", resource: resource %>
     <div class="mb-4">
       <%= f.label :email, class: "label mb-2" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "input" %>
+
+      <% email_error = resource.errors[:email].any? || flash[:alert].present? %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "input #{'input-error' if email_error}"  %>
     </div>
 
     <div class="mb-4">
