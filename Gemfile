@@ -71,3 +71,5 @@ gem "devise", "~> 4.9"
 gem "hotwire-livereload", "~> 2.1", group: :development
 
 gem 'letter_opener', '~> 1.10', group: :development
+
+gem "view_component"
