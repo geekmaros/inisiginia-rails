@@ -27,9 +27,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="min-h-screen bg-gray-50  flex">
-<!--  <p class="notice"><%#= notice %></p>-->
-<!--  <p class="alert"><%#= alert %></p>-->
+  <body class="min-h-screen bg-gray-50 relative  flex">
+  <%= render "shared/notifications", resource: (defined?(resource) ? resource : nil) %>
   <main class="flex flex-col md:flex-row flex-1">
 
     <!-- Left Section (Form / Auth Content) -->

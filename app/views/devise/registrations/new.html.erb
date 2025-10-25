@@ -3,14 +3,14 @@
   <h2 class="auth-title mt-10">Get Insignia Account</h2>
 
   <div class="max-w-[327px] w-full mt-2 space-y-4">
-    <p class="auth-subtitle">Get started with creating professional ID cards for your team.</p>
+    <p class="auth-subtitle">Get Started with creating professional ID cards for your team.</p>
     <p class="auth-link-text">Already have an account? <%= link_to "Sign in", new_user_session_path, class: "auth-link" %>  </p>
 
   </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-10"}) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <%= render "devise/shared/notice_messages", resource: resource %>
+    <%#= render "devise/shared/error_messages", resource: resource %>
+    <%#= render "devise/shared/notice_messages", resource: resource %>
 
     <div class="mb-4">
       <%= f.label :email, class: "label mb-2" %>

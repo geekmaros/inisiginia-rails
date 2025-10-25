@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-
-
 @theme{
     --color-primary: #84D94D;
     --color-gray-90: #292D32;
@@ -85,7 +83,7 @@
     }
 
     .label{
-        @apply text-sm text-gray-50 font-medium mb-2 block;
+        @apply text-sm text-gray-50 font-medium mb-2 block capitalize;
     }
 
     .input{
@@ -95,6 +93,10 @@
 
     .input-error{
         @apply border-red-500 focus:ring-red-500;
+    }
+
+    .text-error{
+        @apply text-xs text-red-500 font-medium;
     }
 
 

@@ -7,21 +7,33 @@
 
   </div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-10"}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-10 relative" }) do |f| %>
     <%= render "devise/shared/notice_messages", resource: resource %>
-    <div class="mb-4">
-      <%= f.label :email, class: "label mb-2" %>
+    <%#= render "devise/shared/error_messages", resource: resource %>
+<!--    <div class="mb-4">-->
+      <%#= f.label :email, class: "label mb-2" %>
 
-      <% email_error = resource.errors[:email].any? || flash[:alert].present? %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "input #{'input-error' if email_error}"  %>
-    </div>
+      <%# email_error = resource.errors[:email].any? || flash[:alert].present? %>
+      <%#= f.email_field :email, autofocus: true, autocomplete: "email",  class: "input #{'input-error' if email_error}"  %>
+<!--    </div>-->
 
-    <div class="mb-4">
-      <%= f.label :password, class: "label mb-2"%>
-      <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
-    </div>
+
+    <%= render InputComponent.new(form: f, model: resource ,label: :email, type: "email", attribute: :email, custom_class: "mb-4", options: {
+      autofocus: true,
+      autocomplete: "email",
+    }, external_error_message: flash[:alert]) %>
+
+<!--    <div class="mb-4">-->
+      <%#= f.label :password, class: "label mb-2"%>
+      <%#= f.password_field :password, autocomplete: "current-password", class: "input" %>
+<!--    </div>-->
+
+    <%= render InputComponent.new(form: f, model: resource ,label: :password, type: "password", attribute: :password, custom_class: "mb-4", options: {
+      autocomplete: "current-password",
+    }, external_error_message: flash[:alert]) %>
 
     <% if devise_mapping.rememberable? %>
+
       <div class="field flex items-center space-x-1 hidden">
         <%= f.check_box :remember_me, class: "mb-2 accent-primary checked:bg-primary"%>
         <%= f.label :remember_me, class: "label inline"%>

@@ -1,0 +1,18 @@
+<div class="">
+  <% if @label.present? %>
+    <%= @form.label @attribute, @label, class: "label mb-2" %>
+  <% end %>
+  <% input_classes = ["input", ("input-error" if has_error?), @custom_class.presence].compact.join(" ") %>
+  <%= @form.send("#{@type}_field", @attribute,
+                 {
+                   class: input_classes,
+                   placeholder: @placeholder,
+                 }.merge(@options)
+                ) %>
+
+  <%# if has_error? %>
+<!--    <span class="text-error"><%#=error_message %></span>-->
+  <%#= render "devise/shared/error_messages", resource: resource %>
+
+  <%# end %>
+</div>

@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get "dashboard/show"
   get "pages/home"
   get "pages/dashboard"
-  devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", sign_up: "register", confirmation: "verification" }
+  devise_for :users, path: "auth", path_names: { sign_in: "login", sign_out: "logout", sign_up: "register", confirmation: "verification" },
+             controllers: { sessions: "users/sessions" }
 
-  # the below using scope route allows us to have customized,  our routes for each user in app/ and it doesn't need for a controller of app
+  # the below using scope route allows us to have customized,  our routes for each users in app/ and it doesn't need for a controller of app
   # to be created to use it.
   scope "app/:user_id" do
     get "dashboard", to: "dashboard#show", as: :user_dashboard
